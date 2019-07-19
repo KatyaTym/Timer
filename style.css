@@ -1,0 +1,18 @@
+ body {
+ 	background-color: black;
+ }
+
+ div {
+      height: 40px;
+      margin: 1px;
+      background-color: #42f545;
+    }
+
+.countdown-number, .countdown, .countdown02 {
+	color: white;
+	background-color: black;
+}
+
+.green_line {
+	margin-bottom: 10px;
+}
