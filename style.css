@@ -6,7 +6,8 @@
      color: white;
  }
 
- #timer_line {
+ #timer_line,
+ #timer_line2 {
      height: 40px;
      background-color: #42f545;
  }
