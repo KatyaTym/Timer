@@ -15,12 +15,8 @@ function timer_button_tumbler() {
 
 function timer(time) {
     const startTime = time;
-    const line = document.getElementById('timer_line');
     const timer_tick = function() {
-        const a = (time / startTime) * 100;
-        if (line) {
-            line.setAttribute("style", 'width:' + a + '%');
-        }
+        setTimerLineWidth(time / startTime * 100);
         setCountdownValue(time);
         --time;
         if (time < 0) {
@@ -31,11 +27,16 @@ function timer(time) {
     interval = setInterval(timer_tick, 1000);
 }
 
-function setCountdownValue (time) {
+function setTimerLineWidth(width) {
+    const line = document.getElementById('timer_line');
+    line.setAttribute("style", 'width:' + width + '%');
+}
+
+function setCountdownValue(time) {
     const countdown = document.getElementById('countdown');
-    const minutes = countdown.getElementsByClassName('minutes') [0];
-    const seconds = countdown.getElementsByClassName('seconds') [0];
-    let m = Math.floor (time / 60);
+    const minutes = countdown.getElementsByClassName('minutes')[0];
+    const seconds = countdown.getElementsByClassName('seconds')[0];
+    let m = Math.floor(time / 60);
     let s = time - m * 60;
     if (m < 10) {
         m = '0' + m;
