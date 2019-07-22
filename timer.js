@@ -9,11 +9,11 @@ function timer_button_tumbler() {
         clearInterval(interval);
     } else {
         timer_button.value = "Stop";
-        timer(5);
+        timer(5, 1000);
     }
 };
 
-function timer(time) {
+function timer(time, span) {
     const startTime = time;
     const timer_tick = function() {
         setTimerLineWidth(time / startTime * 100);
@@ -24,13 +24,13 @@ function timer(time) {
         }
     };
     timer_tick();
-    interval = setInterval(timer_tick, 1000);
-}
+    interval = setInterval(timer_tick, span);
+};
 
 function setTimerLineWidth(width) {
     const line = document.getElementById('timer_line');
     line.setAttribute("style", 'width:' + width + '%');
-}
+};
 
 function setCountdownValue(time) {
     const countdown = document.getElementById('countdown');
@@ -46,4 +46,4 @@ function setCountdownValue(time) {
     }
     minutes.textContent = m;
     seconds.textContent = s;
-}
+};
